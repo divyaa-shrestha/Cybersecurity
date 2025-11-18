@@ -8,3 +8,6 @@
 | 04.11.2025 | 2          | Lecture intro to PortSwigger         | Lecture regarding         |
 | 07.11.2025 | 3          | Completing module 1,2,3         | Finished modules and practiced identifying web security issues         |
 | 08.11.2025 | 4         | Completing module 4,5 and course final exam         | Completed remaining modules and passed the final exam         |
+| 10.11.2025 | 3          | Going through PortSwigger         | Learned about PortSwigger concepts          |
+| 17.11.2025 | 4          | SQLi labs         | Starting labs         |
+| 18.11.2025 | 4          | SQLi labs         | Finished 6 labs in total         |

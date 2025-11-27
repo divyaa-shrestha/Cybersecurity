@@ -11,3 +11,7 @@
 | 10.11.2025 | 3          | Going through PortSwigger         | Learned about PortSwigger concepts          |
 | 17.11.2025 | 4          | SQLi labs         | Starting labs         |
 | 18.11.2025 | 4          | SQLi labs         | Finished 6 labs in total         |
+| 23.11.2025 | 4          |   Booking System project       | Going through the assignment and getting to know         |
+| 24.11.2025 | 5          |   setting up pen-test lab       | Had problems setting up the environment         |
+| 26.11.2025 | 5          |   setting up pen-test lab       | solved problems and did penetration test         |
+| 24711.2025 | 4          |   understanding report and writing        | Finished writing report and completed phase 1 -part 1        |

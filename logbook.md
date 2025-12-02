@@ -15,3 +15,5 @@
 | 24.11.2025 | 5          |   setting up pen-test lab       | Had problems setting up the environment         |
 | 26.11.2025 | 5          |   setting up pen-test lab       | solved problems and did penetration test         |
 | 27.11.2025 | 6          |   understanding report and writing        | Finished writing report and completed phase 1 -part 1        |
+| 29.11.2025 | 6          |   starting phase 1 - part 2       | Downloaded updated version and started test         |
+| 02.12.2025 | 6          |   writing discussion forum and final reports        | Finished writing report and completed phase 1 -part 2        |

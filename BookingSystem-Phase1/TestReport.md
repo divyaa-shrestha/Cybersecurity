@@ -75,10 +75,10 @@ The full scan results are included as a separate Markdown file.
 
 
 ### 📎 ZAP Report (Markdown)
- **[Click here to view the full ZAP report](./ZAP-Report.md)**
+ **[Click here to view the full ZAP report part1](./ZAP-Report-round1.md)**
+ **[Click here to view the full ZAP report part2](./ZAP-Report-round2.md)**
 
  ### Notes
-- The ZAP scan was run against the local testing environment (`http://localhost:8000`).
-- Report includes all Medium, Low, and Informational findings.
+- The ZAP scan was run against the local testing environment.
 - No manual edits were made to the ZAP output, as required.
   

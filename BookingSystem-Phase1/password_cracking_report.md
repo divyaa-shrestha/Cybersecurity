@@ -51,13 +51,7 @@ Below are the cracked passwords, methods used, and screenshots (insert your own 
 ### **5. Hash:** `d57f21e6a273781dbf8b7657940f3b03`
 
 * **Password:** aaaaaaaaaaa
-* **Method:** Individual hash cracking using stdin
-* **Command Used:**
-
-```
-cmd /c "echo d57f21e6a273781dbf8b7657940f3b03" | .\hashcat.exe -m 0 -a 0 --stdin-hashes "rockyou.txt"
-```
-
+* **Method:** Added the hash to hashes.txt and used dictionary attack
 * **Screenshot:** *![alt text](<Screenshot 2025-12-08 205050.png>)*
 
 ---

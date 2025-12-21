@@ -23,4 +23,4 @@ Accounts may be terminated in case of misuse.
 The system is provided for educational purposes without warranties.
 
 ## 7. Changes to Terms
-We may update these terms. Users will be notified via the system or email.
+We may update these terms. Users will be notified via the system or email

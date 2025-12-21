@@ -18,7 +18,7 @@
 | Requirement | Result | Notes |
 |------------|--------|-------|
 | GDPR-compliant consent during registration |✅ | Registration form includes consent for data processing |
-| Users can view/edit/delete their personal data | ⚠️ | Not possible; process not fully visible |
+| Users can view/edit/delete their personal data | ⚠️ | No user-facing interface to view, edit, or delete personal data was observed.
 | Admin can delete a reserver (right to be forgotten) | ✅ | Admin can remove users |
 | Underage registration/booking restricted | ✅ | Users under 15 cannot book |
 

@@ -18,3 +18,11 @@ By using this system, users consent to the use of essential cookies required for
 
 ## 5. Managing Cookies
 Users can manage or disable cookies through their browser settings. Disabling cookies may affect system functionality.
+
+## 6. GDPR Compliance
+- Cookies do not store sensitive personal data like passwords or birthdates.
+- Users’ consent is obtained implicitly by using the system.
+- Users may withdraw consent by clearing cookies or disabling them in the browser.
+
+##  7. Contact
+For questions regarding cookies, contact: privacy@example.com

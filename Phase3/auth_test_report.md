@@ -15,7 +15,7 @@ Testing was performed using:
 - Manual browser testing
 - URL manipulation
 - OWASP ZAP active scanning
-- Gobuster / wfuzz endpoint discovery
+- Gobuster endpoint discovery
 
 
 ---
@@ -58,9 +58,15 @@ Testing was performed using:
   Observation: Pages not found or blocked  
   Spec match: ✅ Yes
 
-### Notes
-- No protected content is accessible as Guest
-- GDPR requirement met: no personal data exposure
+- **Cannot access reservation API** — `GET /api/reservations`  
+  Observation: Guest receives full reservation data in JSON, including reservation IDs, resource IDs, names, and start/end times, without authentication  
+  Spec: ❌ Violates spec
+
+- **Cannot access users API** — `GET /api/users`  
+  Observation: Guest receives full user list in JSON, including usernames, roles, and user tokens; no authentication required  
+  Spec: ❌ Violates spec
+
+
 
 ---
 
@@ -77,8 +83,17 @@ Testing was performed using:
   Spec match: ✅ Yes
 
 - **Can view reservations** — `/api/reservations`  
-  Observation: Reservation data visible without user identities  
+  Observation: Reservation data visible 
   Spec match: ✅ Yes
+
+- **Can register as a reserver** — `/register`  
+  Observation: Registration form accepts new user details; system validates age and only allows registration if user is over 15; otherwise shows error message “You are not above 15”  
+  Spec: ✅ Yes
+
+- **Can log in successfully** — `/login`  
+  Observation: Login succeeds with correct credentials  
+  Spec: ✅ Yes
+
 
 ### ❌ Cannot do
 
@@ -90,7 +105,7 @@ Testing was performed using:
   Observation: Access denied  
   Spec match: ✅ Yes
 
-- **Cannot manage resources** — `/admin/resources`  
+- **Cannot manage resources** — `/api/resources`  
   Observation: Page unavailable  
   Spec match: ✅ Yes (Admin only)
 
@@ -98,20 +113,34 @@ Testing was performed using:
   Observation: No IDOR or privilege escalation found  
   Spec match: ✅ Yes
 
-- **Cannot escalate privileges via URL or form manipulation**  
+- **Cannot update other users’ reservations via UI or form manipulation**  
   Observation: Manual testing unsuccessful  
   Spec match: ✅ Yes
 
-### Notes
-- Reserver role is correctly limited to booking functionality
-- No admin capabilities exposed
+- **Can access users API** — `GET /api/users`  
+  Observation: Reserver receives full user list in JSON, including usernames, roles, and user tokens; no restriction based on role  
+  Spec: ❌ Violates spec
+
+- **Can access all reservations via API** — `GET /api/reservations` and `GET /api/reservations/:id`  
+  Observation: Reserver can see all reservations in JSON, including reservations created by other users; no restriction is applied based on ownership  
+  Spec:❌ Violates spec
+
+- **Cannot access own profile page** — `/profile`  
+  Observation: Access is blocked  
+  Spec: ⚠️ Not defined in spec
+
 
 ---
+
 
 ## 🧑‍💼🛡️ Administrator (Privileged User)
 
 ### ✅ Can do
 
+- **Can register and log in as administrator** — `/login` + `/register`  
+  Observation: Admin registration and login succeed; admin is redirected to admin dashboard  
+  Spec:✅ Yes
+  
 - **Can view all resources**
   Observation: Data returned successfully  
   Spec match: ✅ Yes
@@ -124,20 +153,22 @@ Testing was performed using:
   Observation: Reservation modification possible  
   Spec match: ✅ Yes (Spec: admin can modify reservations)
 
+- **Can access users API** — `GET /api/users`  
+  Observation: Admin receives full user list in JSON, including usernames, roles, and user tokens  
+  Spec: ✅ Yes
+
+
+
 ### ❌ Cannot do / Limitations
 
-- **Cannot manage users via UI** — `/admin/users`  
-  Observation: UI not implemented in Phase 3  
-  Spec match: ⚠️ Partially (spec allows, implementation missing)
+- **Cannot delete a reserver** — `/admin/users/delete/:id`  
+  Observation: Status page shows “Not Found” with back-to-home button; admin cannot delete users via the UI/API  
+  Spec: ⚠️ Not defined
 
 - **Cannot manage resources via UI** — `/admin/resources`  
   Observation: Add/edit/delete resource not exposed  
-  Spec match: ⚠️ Partially implemented
+  Spec match: ⚠️ Not defined
 
-### Notes
-- Administrator has backend authority to modify reservations
-- Other admin features are intentionally not exposed, reducing attack surface
-- No unnecessary privilege exposure detected
 
 ---
 
@@ -147,37 +178,6 @@ Testing was performed using:
 - OWASP ZAP
 - Gobuster
 
-### Results
-
-- No undocumented pages or endpoints discovered
-- No authorization bypasses found
-- No IDOR vulnerabilities detected
-- All discovered endpoints were already known
-
----
-
-## 🧪 ZAP Testing Summary
-
-- Target: `http://localhost:8003`
-- Discovered endpoints:
-  - `/login`
-  - `/register`
-  - `/reservation`
-  - `/api/resources`
-  - `/api/reservations`
-- Alerts:
-  - Informational only (headers, session handling)
-- No authorization-related vulnerabilities found
-
----
-
-## ✅ Final Assessment
-
-- Guests cannot access protected content
-- Reservers cannot perform administrative actions
-- Administrators can edit reservations but are not overexposed
-- No hidden endpoints, IDORs, or authorization bypasses found
-- Backend authorization is correctly enforced
 
 **Conclusion:**  
 The Phase 3 implementation satisfies the authorization requirements defined in the specifications and follows Privacy by Design principles.

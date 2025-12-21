@@ -9,6 +9,9 @@ We collect the following data:
 - Password
 - Age (to verify legal booking eligibility)
 - Role
+- Session tokens and CSRF tokens
+- Login logs including IP address
+- Booking information (reservation start and end times)
 
 ## 3. Purpose of Processing
 Personal data is processed solely for:
@@ -25,9 +28,19 @@ Personal data is retained only as long as necessary for service provision.
 ## 6. User Rights
 Users have the right to:
 - Access their data
+- Request deletion of personal data
+- Withdraw consent for data processing
+- Correct inaccurate data
+
 
 ## 7. Data Security
-Appropriate technical and organizational measures are implemented to protect personal data.
+- Passwords are stored securely using bcrypt hashing.
+- CSRF, XSS, and SQL injection protections are implemented.
+- Logs and sessions are stored without exposing sensitive personal data unnecessarily.
+  
+## 8. Data Sharing
+We do not share your personal data with third parties except as required by law.
+
 
 ## 8. Contact
 For GDPR-related requests, contact the system administrator.
